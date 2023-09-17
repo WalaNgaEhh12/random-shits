@@ -1,0 +1,15 @@
+local VU = game:GetService("VirtualUser")
+local autoClickerEnabled = true
+
+local function autoClick()
+    while true do
+        if autoClickerEnabled then
+            VU:CaptureController()
+            VU:ClickButton1(Vector2.new())
+        end
+        wait(0.1)
+    end
+end
+
+local autoClickThread = coroutine.create(autoClick)
+coroutine.resume(autoClickThread)
